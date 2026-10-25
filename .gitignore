@@ -1,0 +1,43 @@
+# Executables
+*.exe
+*.out
+*.app
+huff
+unit_tests
+
+# Object and library files
+*.o
+*.obj
+*.a
+*.lib
+*.dll
+*.so
+*.dylib
+
+# Temporary files and test directories
+*.tmp
+*.tmp*
+tests_tmp/
+test_check.*
+*.huff
+*_restored.*
+
+# Build artifacts & logs
+build/
+bin/
+obj/
+*.log
+
+# IDE and Editor configurations
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+.DS_Store
+Thumbs.db
+
+# Python bytecode and caches
+__pycache__/
+*.pyc
+*.pyo

@@ -1,0 +1,34 @@
+name: CI Build & Automated Tests
+
+on:
+  push:
+    branches: [ main, master ]
+  pull_request:
+    branches: [ main, master ]
+
+jobs:
+  build-and-test:
+    runs-on: ${{ matrix.os }}
+    strategy:
+      matrix:
+        os: [ubuntu-latest, windows-latest]
+
+    steps:
+    - name: Check out repository
+      uses: actions/checkout@v4
+
+    - name: Set up Python for test orchestration
+      uses: actions/setup-python@v5
+      with:
+        python-version: '3.11'
+
+    - name: Build & Run Tests (Linux)
+      if: runner.os == 'Linux'
+      run: |
+        make clean
+        make test
+
+    - name: Build & Run Tests (Windows)
+      if: runner.os == 'Windows'
+      run: |
+        .\build.ps1 -Target test
